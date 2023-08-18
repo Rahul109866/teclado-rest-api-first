@@ -15,7 +15,7 @@ def create_store():
     for store in request_data:
         new_store = {"name": store['name'], "items": []}
         stores.append(new_store)
-    response = make_response("Store saved succesfully", 201)
+    response = make_response("Store saved succesfully\n ANything Else loser?", 201)
     return response
 
 
