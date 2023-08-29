@@ -1,0 +1,23 @@
+_id: req_4a18e50b290241e3a7ef4ba39b7c8f3c
+type: Request
+parentId: fld_79c1a7f7dd214b6392d8ff2670e70419
+modified: 1693289299646
+created: 1693289247690
+url: http://127.0.0.1:5000/item/item_id
+name: Delete Item
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.6
+authentication: {}
+metaSortKey: -1693285504515
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

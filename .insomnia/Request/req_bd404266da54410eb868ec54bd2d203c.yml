@@ -1,0 +1,23 @@
+_id: req_bd404266da54410eb868ec54bd2d203c
+type: Request
+parentId: fld_79c1a7f7dd214b6392d8ff2670e70419
+modified: 1693289322117
+created: 1693289319090
+url: http://127.0.0.1:5000/item/item_id
+name: Update Item
+description: ""
+method: PUT
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.6
+authentication: {}
+metaSortKey: -1693285504465
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
