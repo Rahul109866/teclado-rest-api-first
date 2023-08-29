@@ -83,6 +83,7 @@ def get_store(store_id):
 def get_store(store_id):
     try:
         del stores[store_id]
+        return {"message": "Store deleted."}
     except KeyError:
         abort(404, message="Store not Found.")
 
@@ -116,6 +117,7 @@ def get_item(item_id):
 def get_item(item_id):
     try:
         del items[item_id]
+        return {"message": "Item deleted."}
     except KeyError:
         abort(404, message="Item not found.")
 
