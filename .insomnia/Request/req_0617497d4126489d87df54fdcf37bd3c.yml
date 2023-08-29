@@ -1,0 +1,33 @@
+_id: req_0617497d4126489d87df54fdcf37bd3c
+type: Request
+parentId: fld_a51dde601c2d4e0cb226f55c0294e080
+modified: 1693289242687
+created: 1692256402281
+url: http://127.0.0.1:5000/item
+name: Create a new item
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "Nike Dunks Retro",
+    	"price": 359.99,
+    	"store_id": "b0ff2d4354a046a5b768b1498bac3289"
+    	
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.3
+authentication: {}
+metaSortKey: -1693285519393
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,30 @@
+_id: req_835e05f401654618b966a23b440cc61e
+type: Request
+parentId: fld_a51dde601c2d4e0cb226f55c0294e080
+modified: 1693287489908
+created: 1692256120851
+url: http://127.0.0.1:5000/store
+name: Create a new store
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "Nike Originals"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+  - name: User-Agent
+    value: Insomnia/2023.5.3
+authentication: {}
+metaSortKey: -1693285519343
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

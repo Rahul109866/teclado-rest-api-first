@@ -1,0 +1,23 @@
+_id: req_de0ed3c3257b4800b76f9264edb53f07
+type: Request
+parentId: fld_a51dde601c2d4e0cb226f55c0294e080
+modified: 1693289545737
+created: 1693287592250
+url: http://127.0.0.1:5000/store/store_id/items
+name: Get all items in a store
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: Insomnia/2023.5.6
+authentication: {}
+metaSortKey: -1693285519643
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
