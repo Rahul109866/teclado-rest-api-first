@@ -41,15 +41,6 @@ def get_store(store_id):
         abort(404, message="Store not Found.")
 
 
-@app.delete("/store/<string:store_id>")  # return store detail with store_id
-def delete_store(store_id):
-    try:
-        del stores[store_id]
-        return {"message": "Store deleted."}
-    except KeyError:
-        abort(404, message="Store not Found.")
-
-
 @app.get("/store/<string:store_id>/items")
 def get_store_items(store_id):
     try:
@@ -59,11 +50,6 @@ def get_store_items(store_id):
         return {"Store": stores[store_id]["name"], "Items": store_items}
     except KeyError:
         return abort(400, message="Store is not found.")
-
-
-@app.get("/item")  # get all items regardless of shops
-def get_all_items():
-    return {"items": list(items.values())}
 
 
 @app.post('/item')  # create an item
@@ -104,6 +90,28 @@ def create_item():
     return item, 201  # return item to signify item has been created
 
 
+@app.delete("/store/<string:store_id>")  # return store detail with store_id
+def delete_store(store_id):
+    try:
+        del stores[store_id]
+        return {"message": "Store deleted."}
+    except KeyError:
+        abort(404, message="Store not Found.")
+
+
+@app.get("/item")  # get all items regardless of shops
+def get_all_items():
+    return {"items": list(items.values())}
+
+
+@app.get("/item/<string:item_id>")  # return the item details based on item_id
+def get_item(item_id):
+    try:
+        return items[item_id]
+    except KeyError:
+        abort(404, message="Item not found.")
+
+
 @app.put("/item/<string:item_id>")
 def update_item(item_id):
     item_data = request.get_json()
@@ -122,14 +130,6 @@ def update_item(item_id):
         abort(404, message="Item not found.")
 
 
-@app.get("/item/<string:item_id>")  # return the item details based on item_id
-def get_item(item_id):
-    try:
-        return items[item_id]
-    except KeyError:
-        abort(404, message="Item not found.")
-
-
 # delete the item  based on item_id
 @app.delete("/item/<string:item_id>")
 def delete_item(item_id):
@@ -143,12 +143,12 @@ def delete_item(item_id):
 if __name__ == '__main__':
     app.run(debug=True)
 
-    print("Stores dictionary contents: ")
-    for store_id, store in stores.items():
-        print(f"Store ID: {store_id},\nStore Name: {store}")
+    # print("Stores dictionary contents: ")
+    # for store_id, store in stores.items():
+    #     print(f"Store ID: {store_id},\nStore Name: {store}")
 
-    print("Items dictionary contents: ")
-    for item_id, item in items.items():
-        print(f"Item ID: {item_id}")
-        for key, value in item.items():
-            print(f"  {key}: {value}")
+    # print("Items dictionary contents: ")
+    # for item_id, item in items.items():
+    #     print(f"Item ID: {item_id}")
+    #     for key, value in item.items():
+    #         print(f"  {key}: {value}")
