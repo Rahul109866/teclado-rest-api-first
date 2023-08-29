@@ -33,6 +33,40 @@ def create_store():
     return store, 201
 
 
+
+
+@app.get("/store/<string:store_id>")  # return store detail with store_id
+def get_store(store_id):
+    try:
+        return stores[store_id]
+    except KeyError:
+        abort(404, message="Store not Found.")
+
+
+@app.delete("/store/<string:store_id>")  # return store detail with store_id
+def get_store(store_id):
+    try:
+        del stores[store_id]
+        return {"message": "Store deleted."}
+    except KeyError:
+        abort(404, message="Store not Found.")
+
+
+@app.get("/store/<string:store_id>/items")
+def get_store_items(store_id):
+    try:
+        store_items = [item for item in items.values(
+        ) if item["store_id"] == store_id]
+
+        return {"Store": stores[store_id]["name"], "Items": store_items}
+    except KeyError:
+        return abort(400, message="Store is not found.")
+
+
+@app.get("/item")  # get all items regardless of shops
+def get_all_items():
+    return {"items": list(items.values())}
+
 @app.post('/item')  # create an item
 def create_item():
     item_data = request.get_json()  # parse incoming json item payload to python objects
@@ -70,39 +104,23 @@ def create_item():
 
     return item, 201  # return item to signify item has been created
 
-
-@app.get("/store/<string:store_id>")  # return store detail with store_id
-def get_store(store_id):
+@app.put("/item/<string:item_id>")
+def update_item(item_id):
+    item_data = request.get_json()
+    if (
+        "name" not in item_data or
+        "price" not in item_data
+    ):
+        abort(400,message="Ensure price and name are included in the JSON payload.")
     try:
-        return stores[store_id]
+        item = items[item_id]
+        item |= item_data #update the item data in items dict
+        
+        return item
+    
     except KeyError:
-        abort(404, message="Store not Found.")
-
-
-@app.delete("/store/<string:store_id>")  # return store detail with store_id
-def get_store(store_id):
-    try:
-        del stores[store_id]
-        return {"message": "Store deleted."}
-    except KeyError:
-        abort(404, message="Store not Found.")
-
-
-@app.get("/store/<string:store_id>/items")
-def get_store_items(store_id):
-    try:
-        store_items = [item for item in items.values(
-        ) if item["store_id"] == store_id]
-
-        return {"Store": stores[store_id]["name"], "Items": store_items}
-    except KeyError:
-        return abort(400, message="Store is not found.")
-
-
-@app.get("/item")  # get all items regardless of shops
-def get_all_items():
-    return {"items": list(items.values())}
-
+        abort(404,message="Item not found.")
+        
 
 @app.get("/item/<string:item_id>")  # return the item details based on item_id
 def get_item(item_id):
